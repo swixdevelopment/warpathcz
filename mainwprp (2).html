@@ -1,0 +1,185 @@
+<!DOCTYPE html> 
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>War Path Roleplay</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome link for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Globální styl */
+        body {
+            background: url('https://cdn.discordapp.com/attachments/1301629945939759246/1307335466785308683/sd_darkened_blurred.webp?ex=6739ee88&is=67389d08&hm=8ac88664745b2f84936ce0bc5b173564ea9ed10f9d47f0a72c0ab982183a5e57&') no-repeat center center fixed; /* Pozadí stránky */
+            background-size: cover;
+            font-family: 'Oswald', sans-serif;
+            color: #2c3e50;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        header {
+            position: absolute; /* Fix header to the top-left corner */
+            top: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center; /* Align logo and title vertically */
+        }
+
+        header img {
+            height: 50px; /* Adjust logo size */
+            margin-right: 20px; /* Space between logo and title */
+        }
+
+        header h1 {
+            font-size: 5rem; /* Zvýšení velikosti písma */
+            font-weight: bold; /* Tučné písmo pro zvýraznění */
+            text-transform: uppercase; /* Velká písmena pro důraz */
+            letter-spacing: 5px; /* Roztažení písmen pro lepší efekt */
+            margin: 0;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6); /* Stín pro lepší čitelnost */
+            color: #FFF; /* Change WAR PATH text to white */
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: #DDD;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #2c3e50; /* Změněno na požadovanou barvu */
+            padding: 15px;
+            gap: 20px;
+        }
+
+        nav a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            color: #FFF;
+            text-decoration: none;
+            background-color: rgba(74, 74, 74, 0.8); /* Tmavý podklad */
+            border-radius: 25px;
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #FFF;
+            color: #333;
+        }
+
+        nav i {
+            font-size: 24px; /* Ikona velikost */
+        }
+
+        main {
+            text-align: center;
+            margin-top: 50px; /* Zvýšení horního okraje pro lepší pozici */
+        }
+
+        main h2 {
+            font-size: 6rem; /* Zvýšení velikosti písma pro WAR PATH */
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 10px; /* Zvýšení mezer mezi písmeny */
+            color: #FFF; /* Změna barvy textu na bílou */
+            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8); /* Silnější stín pro lepší efekt */
+            margin: 0; /* Posun textu až nahoru */
+            padding-top: 50px; /* Vytvoření mírného prostoru nad textem */
+        }
+
+        main p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #FFF; /* Změna barvy textu na bílou */
+        }
+
+        .video-container {
+            margin: 40px auto; /* Centrování videa */
+            width: 400px; /* Nastavení šířky na 400px */
+            height: 400px; /* Nastavení výšky na 400px */
+            overflow: hidden; /* Skrývá části videa, které přesahují */
+            position: relative;
+            border-radius: 20px; /* Zaoblené rohy videa */
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .link-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #2c3e50; /* Změněno na požadovanou barvu */
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            transition: background-color 0.3s;
+        }
+
+        .link-button:hover {
+            background-color: #2c3e50; /* Změněno na požadovanou barvu */
+        }
+
+        footer {
+            background-color: rgba(43, 43, 43, 0.8);
+            color: #F4F4F4;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Logo image, replace with your logo path -->
+        <img src="https://cdn.discordapp.com/attachments/1301629945939759246/1308143084348899431/recolored_image.png?ex=67417bef&is=67402a6f&hm=839bb972721dc4a62c58cec82e57110f09ac3cc4fdec2658b9b5b25c2d7c144d&" alt="War Path Logo">
+    </header>
+    <nav>
+        <a href="#domu">
+            <i class="fas fa-home"></i> Domů
+        </a>
+        <a href="wprppravidla.html">
+            <i class="fas fa-book"></i> Pravidla
+        </a>
+        <a href="at.html">
+            <i class="fas fa-users"></i> A-Team
+        </a>
+        <a href="oprojektu.html">
+            <i class="fas fa-wikipedia-w"></i> O PROJEKTU
+        </a>
+    </nav>
+    <main>
+        <h2>WAR PATH</h2>
+        <p>Kde příběhy začínají a historie ožívá</p>
+
+        <!-- Link to History placed above the video -->
+        <a href="historie.html" class="link-button">Přejít na Historii</a>
+
+        <!-- YouTube video section in a square with rounded corners -->
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/Q75tjy-qzrA?si=pXv69ma3Rbq1akAx" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </main>
+    <footer>
+        &copy; 2024 War Path Roleplay. Všechna práva vyhrazena.
+    </footer>
+
+<script src="https://static.app/js/static.js" type="text/javascript"></script>
+</body>
+</html>

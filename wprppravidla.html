@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>WAR PATH - Pravidla</title>
+<style>
+    /* Obecný styl */
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: "Arial", sans-serif;
+        color: #e1e2dc;
+        background-color: #2a2e2b; /* Tmavě šedá barva pozadí */
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Styl pro header */
+    header {
+        background-color: #1f2b29; /* Tmavě šedozelená */
+        color: #e1e2dc;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: center; /* Zarovnání textu na střed */
+        align-items: center;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
+    }
+
+    header img {
+        height: 40px;
+        margin-right: 10px;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        color: #a2c11c; /* Světle zelená barva */
+    }
+
+    /* Styl pro hlavní obsah */
+    .rules-container {
+        padding: 20px;
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .rules-container h1 {
+        text-align: center;
+        color: #a2c11c; /* Světle zelená */
+        text-transform: uppercase;
+        text-shadow: 1px 1px 4px #000000;
+    }
+
+    .rule-category {
+        margin-bottom: 20px;
+        border: 1px solid #3b4c43; /* Středně šedozelená */
+        border-radius: 5px;
+        background-color: #242c29; /* Tmavě šedá se zeleným odstínem */
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .rule-category h2 {
+        color: #a2c11c; /* Světle zelená */
+        background-color: #1f2b29; /* Tmavě šedozelená */
+        padding: 10px;
+        border-radius: 5px 5px 0 0;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        font-size: 18px;
+        text-transform: uppercase;
+    }
+
+    .rule-category p {
+        color: #e1e2dc;
+        padding: 10px;
+        margin: 0;
+    }
+
+    .rule-category h2:hover {
+        background-color: #3b4c43; /* Středně šedozelená */
+    }
+    /* Styl pro vyhledávací pole */
+    .search-container {
+        display: flex;
+        justify-content: center;
+        margin: 30px 0;
+    }
+
+    .search-container input[type="text"] {
+        width: 60%;
+        padding: 10px;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        background-color: #3b4c43; /* Středně šedozelená */
+        color: #e1e2dc;
+        caret-color: #e1e2dc;
+    }
+
+    .search-container input[type="text"]::placeholder {
+        color: #a3b3ac; /* Světle šedozelená */
+    }
+.home-button {
+    font-weight: bold;
+    text-align: center;
+    position: fixed;  /* Makes the button stay fixed when scrolling */
+    top: 20px;        /* Distance from the top of the page */
+    right: 20px;      /* Distance from the right side of the page */
+    background-color: #1f2b29; /* Optional: background color */
+    color: #e1e2dc;   /* Text color */
+    padding: 10px 20px; /* Padding for the button */
+    border-radius: 5px;  /* Optional: rounded corners */
+    text-decoration: none;  /* Remove underline */
+    font-size: 16px;      /* Optional: change font size */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);  /* Optional: shadow effect */
+}
+
+.home-button:hover {
+    background-color: #e1e2dc; /* Optional: change background color on hover */
+    color: #1f2b29;  /* Optional: text color change on hover */
+}
+
+
+    /* Styl pro footer */
+    footer {
+        background-color: #1f2b29; /* Tmavě šedozelená */
+        color: #e1e2dc;
+        text-align: center;
+        padding: 15px;
+        font-size: 14px;
+        letter-spacing: 1px;
+        margin-top: auto;
+    }
+</style>
+
+    <script>
+        function searchRules() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let rules = document.getElementsByClassName('rule-category');
+            let noResult = document.getElementById('noResult');
+            let found = false;
+
+            for (let rule of rules) {
+                let text = rule.innerText.toLowerCase();
+                if (text.includes(input)) {
+                    rule.style.display = 'block';
+                    found = true;
+                } else {
+                    rule.style.display = 'none';
+                }
+            }
+
+            noResult.style.display = found ? 'none' : 'block';
+        }
+    </script>
+</head>
+<header>
+    <div style="display: flex; align-items: center;">
+        <img alt="Logo" src="https://cdn.discordapp.com/attachments/1301629945939759246/1301838692758982707/dd.png?ex=67390d03&is=6737bb83&hm=c17eabf1ed2f83c88f5203ac6d1e30e297b596b9cbad9013685aa67494f9e942&"/>
+        <h1>WAR PATH ROLEPLAY</h1>
+    </div>
+    <nav>
+        <a class="home-button" href="mainwprp.html">Domů</a>
+    </nav>
+</header>
+    <div class="rules-container">
+        <h1>Pravidla našeho projektu</h1>
+        <div class="search-container">
+            <input id="searchInput" onkeyup="searchRules()" placeholder="Vyhledat pravidlo..." type="text"/>
+        </div>
+        <div id="noResult" class="no-result" style="display:none;">
+            Nebyly nalezeny žádné výsledky.
+        </div>
+        
+       <div class="rule-category">
+  <h2>RP pravidla</h2>
+  <p><strong>RP</strong> (Role Play) – hraní za Vaší vymyšlenou postavu a jejího příběhu, hráč je v podstatě herec, který by měl reagovat na všechny situace jako v reálném životě.</p>
+  <p><strong>OOC</strong> (Out Of Character) - komunikace mimo postavu.</p>
+  <p><strong>IC</strong> (In Character) - komunikace v rámci postavy.</p>
+</div>
+
+<div class="rule-category">
+  <h2>Specifické příkazy</h2>
+  <p><strong>/me</strong> - nahrazuje animaci ve hře, např. /me prohledává.</p>
+  <p><strong>/do</strong> - slouží k interakci mezi hráči pomocí otázek a odpovědí, dále slouží k upřesnění věci o hráči, případně může sloužit k interakci za civilisty.</p>
+  <p><strong>/try</strong> - slouží k náhodnému vygenerování odpovědi ve formátu ANO nebo NE. Nelze použít v rámci Passive RP.</p>
+</div>
+
+<div class="rule-category">
+  <h2>Zakázané praktiky</h2>
+  <p><strong>Mixing</strong> - mixování OOC do IC, např. do voice chatu ve hře budete říkat věci typu “mimozemská řeč, číslo bot nebo bohové”.</p>
+  <p><strong>Powergaming</strong> - RPní nadlidských schopností Vaší postavy. Do tohoto pravidla zároveň spadají NonRP Injuries a NonRP Driving.</p>
+  <p><strong>Metagaming</strong> - používání informací, které Vaše postava neměla jak zjistit.</p>
+  <p>Je zakázáno pouštět hudbu na serveru pomocí Voice Chatu.</p>
+  <p>Je přísně zakázán Stream Sniping, Bunny Hoping nebo používání Voice Changeru.</p>
+</div>
+
+<div class="rule-category">
+  <h2>Základní pravidla</h2>
+  <p><strong>Combat Log</strong> - je zakázáno odpojit se z RP situace. Oznámte případné pády hry do chatu.</p>
+  <p><strong>Revenge Kill</strong> - nesmíte se pomstít za svou smrt po dobu 24 hodin IRL.</p>
+  <p>Je zakázáno RP biologické, chemické a jaderné zbraně.</p>
+  <p><strong>Non RP Driving</strong> - řízení nereálným způsobem (např. s prostřelenými pneumatikami).</p>
+  <p><strong>VDM</strong> - úmyslné najíždění vozidlem na hráče je zakázáno.</p>
+</div>
+
+<div class="rule-category">
+  <h2>PK a CK</h2>
+  <p><strong>Player Kill (PK)</strong> - postava je v bezvědomí a neví, co se děje kolem ní.</p>
+  <p><strong>Character Kill (CK)</strong> - trvalé zabití postavy, po němž je nutné vytvořit novou postavu.</p>
+  <p>Po CK se nelze vrátit ke stejné frakci po dobu 14 dní.</p>
+  <p>Majetek nesmí být rozdělen za účelem jeho navrácení po CK.</p>
+</div>
+
+<div class="rule-category">
+  <h2>Fear RP</h2>
+  <p><strong>Fear RP</strong> - RPení strachu ve všech situacích, kde to dává smysl.</p>
+  <p>Dog Fear a Boss Fear musí být respektovány.</p>
+</div>
+
+<div class="rule-category">
+  <h2>Všeobecná pravidla</h2>
+  <p>Je zakázáno jezdit s otevřeným kufrem během přestřelek.</p>
+  <p><strong>Safe Zone</strong> - nemocnice jsou bezpečné zóny, kde je přísně zakázána střelba.</p>
+  <p>Je zakázáno RPení hlav států.</p>
+  <p>Je zakázáno spamování reportů.</p>
+  <p>Trash Talking v L-OOC chatu je zakázán.</p>
+  <p><strong>GrossRP</strong> - nechutný roleplay je povolen pouze s výslovným souhlasem obou stran.</p>
+</div>
+
+<div class="rule-category">
+  <h2>Staff Team</h2>
+  <p>Rozhodnutí adminů je konečné a nesmí být zpochybňováno.</p>
+  <p>Toxické chování vůči adminům bude potrestáno permanentním banem.</p>
+  <p>Je zakázáno zveřejňovat komunikaci mezi hráčem a adminem.</p>
+</div>
+
+<div class="rule-category">
+  <h2>Další pravidla</h2>
+  <p>Peace Time (PT) – během této doby je zakázáno bojovat nebo zabíjet.</p>
+  <p>Je zakázáno používat modding/cheating či jiné vedlejší programy.</p>
+  <p>Base Sniping je zakázán.</p>
+  <p>Nález bugů nebo chyb je třeba nahlásit v ticket systému.</p>
+  <p>Při komunikaci je zakázáno používat N-word nebo jiná nevhodná slova.</p>
+  <p>Při revive od admina je nutné adekvátně pokračovat v RP.</p>
+</div>
+
+<div class="rule-category">
+  <h2>Pravidlo inventáře</h2>
+  <p>Pokud nemáte zarpené své doklady jinde, tak je máte u sebe.</p>
+  <p>Vše, co máte u sebe, musíte adekvátně erpit.</p>
+</div>
+
+<div class="rule-category">
+  <h2>Pravidla frakcí</h2>
+  <p>Veškeré problémy týkající se frakcí řeší Správce Frakcí.</p>
+  <p>3. strike frakce znamená její zrušení.</p>
+  <p>Je zakázáno nosit uniformy nepřátelské armády.</p>
+  <p>Vstup na nepřátelské území je povolen pouze za účelem sledování.</p>
+</div>
+
+<div class="rule-category">
+  <h2>Únosy a okrádání</h2>
+  <p>Maximální doba únosu je 2 hodiny IRL.</p>
+  <p>Unesený hráč nesmí být přemístěn na místo přístupné pouze teleportem.</p>
+</div>
+      
+    </div>
+    <footer>
+        &copy; 2024 WAR PATH ROLEPLAY. Všechna práva vyhrazena.
+    </footer>
+
+<script src="https://static.app/js/static.js" type="text/javascript"></script>
+</body>
+</html>
