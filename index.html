@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>War Path Roleplay</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: "Oswald", sans-serif;
+            background: url('https://cdn.discordapp.com/attachments/1311714650731188225/1313490688125567016/darker_ww2_battlefield.png?ex=67505307&is=674f0187&hm=29a86745413aec4418f868dfb540e00398d3a304fc39cabed4737161ca49223d&') no-repeat center center fixed;
+            background-size: cover;
+            color: #FFF;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        /* Snow Effect */
+        .snowflakes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+            overflow: hidden;
+        }
+
+        .snowflakes div {
+            position: absolute;
+            background: white;
+            opacity: 0.8;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+
+        /* Increased snowfall */
+        .snowflakes div {
+            animation-duration: 6s;
+            animation-delay: 0s;
+        }
+        .snowflakes div:nth-child(odd) {
+            animation-duration: 8s;
+        }
+        .snowflakes div:nth-child(even) {
+            animation-duration: 5s;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #FFF;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: background 0.3s;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        header {
+            text-align: center;
+            padding: 200px 20px 50px;
+            position: relative;
+        }
+
+        header img {
+            width: 100px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 20px 0 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            font-weight: 600; /* Bold */
+            position: relative;
+            z-index: 2;
+        }
+
+        main {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 1200px;
+        }
+
+        /* Section Title */
+        .advantages_title {
+            font-size: 4rem;
+            text-align: center;
+            margin: 50px auto;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #FFF;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        /* UI Cards Section */
+        .ui-cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            margin: 50px auto;
+        }
+
+        .ui-card {
+            max-width: 300px;
+            background: rgba(30, 60, 120, 0.9); /* Blue-themed background */
+            border-radius: 15px;
+            text-align: center;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .ui-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+        }
+
+        .ui-card-icon img {
+            max-width: 80px;
+            margin-bottom: 20px;
+        }
+
+        .ui-card-title {
+            font-size: 1.5rem;
+            color: #FFF; /* Changed to white */
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .ui-card-description {
+            font-size: 1rem;
+            color: #DDD;
+            line-height: 1.6;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.7);
+            color: #FFF;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Snow Effect -->
+    <div class="snowflakes">
+        <div style="left: 10%; animation-duration: 6s; animation-delay: 0s;"></div>
+        <div style="left: 25%; animation-duration: 8s; animation-delay: 2s;"></div>
+        <div style="left: 40%; animation-duration: 7s; animation-delay: 5s;"></div>
+        <div style="left: 60%; animation-duration: 9s; animation-delay: 1s;"></div>
+        <div style="left: 80%; animation-duration: 7s; animation-delay: 3s;"></div>
+        <div style="left: 15%; animation-duration: 5s; animation-delay: 4s;"></div>
+        <div style="left: 30%; animation-duration: 8s; animation-delay: 6s;"></div>
+        <div style="left: 50%; animation-duration: 6s; animation-delay: 7s;"></div>
+        <div style="left: 70%; animation-duration: 9s; animation-delay: 8s;"></div>
+        <div style="left: 90%; animation-duration: 7s; animation-delay: 2s;"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav>
+        <a href="#home"><i class="fas fa-home"></i> Domů</a>
+        <a href="#about"><i class="fas fa-info-circle"></i> O nás</a>
+        <a href="#features"><i class="fas fa-list"></i> Funkce</a>
+        <a href="#pricing"><i class="fas fa-tags"></i> Ceník</a>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <h1>War Path Roleplay</h1>
+        <p>"Nezapomenutelné příběhy začínají zde."</p>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section id="stream-proofing" style="padding: 50px 0;">
+            <h2 class="advantages_title">V čem vynikáme?</h2>
+            <div class="ui-cards-container">
+                <!-- Zabezpečení -->
+                <div class="ui-card">
+                    <div class="ui-card-icon">
+                        <img src="https://gcdn.thunderstore.io/live/repository/icons/CodeWizards-AntiCheat-0.1.1.png.256x256_q95.png" alt="Stream-proofing Icon">
+                    </div>
+                    <h3 class="ui-card-title">Zabezpečení</h3>
+                    <p class="ui-card-description">
+                        Zabezpečení je naší hlavní prioritou. Používáme pokročilé technologie, abychom zajistili bezpečnost hráčů a jejich dat. Vaše herní zážitek je chráněn proti podvodníkům a nepovoleným zásahům.
+                    </p>
+                </div>
+                <!-- Jednoduchost -->
+                <div class="ui-card">
+                    <div class="ui-card-icon">
+                        <img src="https://cdn-icons-png.freepik.com/512/6146/6146685.png" alt="User-friendly Design Icon">
+                    </div>
+                    <h3 class="ui-card-title">Jednoduchost</h3>
+                    <p class="ui-card-description">
+                        Náš Server nabízí snadno pochopitelné rozhraní, které hráčům usnadňuje navigaci. Začněte hrát během pár minut bez složitých nastavení.
+                    </p>
+                </div>
+                <!-- Rychlý start -->
+                <div class="ui-card">
+                    <div class="ui-card-icon">
+                        <img src="https://cdn-icons-png.freepik.com/512/1096/1096486.png" alt="Quick Start Icon">
+                    </div>
+                    <h3 class="ui-card-title">Optimalizace</h3>
+                    <p class="ui-card-description">
+                        Naše optimalizace zajišťují plynulý a stabilní herní zážitek. Server je navržen tak, aby běžel hladce i na méně výkonných systémech, čímž zaručuje skvélé výkon pro každého hráče.                    
+                    </p>
+                </div>
+                <!-- Komunita -->
+                <div class="ui-card">
+                    <div class="ui-card-icon">
+                        <img src="https://cdn-icons-png.freepik.com/512/2518/2518191.png" alt="Community Icon">
+                    </div>
+                    <h3 class="ui-card-title">Komunita</h3>
+                    <p class="ui-card-description">
+                        Na našem serveru se setkáte s přátelskými a aktivními hráči. Spojte se s ostatními a užívejte si společně zážitky.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 War Path Roleplay. Všechna práva vyhrazena.
+    </footer>
+</body>
+</html>
